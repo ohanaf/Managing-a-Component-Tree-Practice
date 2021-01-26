@@ -5,19 +5,17 @@ function InputArea(props) {
 
 	function handleChange(event) {
 		const newValue = event.target.value;
-		console.log(newValue);
 		setInputText(newValue);
-	}
-
-	function addItem() {
-		props.addItem(inputText);
-		setInputText("");
 	}
 
 	return (
 		<div className="form">
 			<input onChange={handleChange} type="text" value={inputText} />
-			<button onClick={addItem}>
+			<button
+				onClick={() => {
+					props.addItem(inputText);
+					setInputText("");
+				}}>
 				<span>Add</span>
 			</button>
 		</div>
